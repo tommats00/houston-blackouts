@@ -1,5 +1,5 @@
 # Analysis of Blackouts in Houston, Texas
-![Image](https://s.hdnux.com/photos/01/24/10/56/22055870/6/rawImage.jpg)]
+![Image](https://s.hdnux.com/photos/01/24/10/56/22055870/6/rawImage.jpg)
 Image Credit: Brett Coomer, Houston Chronicle
 
 ### Purpose 
