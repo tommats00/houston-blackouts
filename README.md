@@ -24,7 +24,7 @@ The night light data used is from February 7th, 2021 and February 16th, 2021 bec
 For our roads data, we used a shapefile from [Geofabrik's download sites](https://download.geofabrik.de/) that was subsetted for roads that intersected with the Houston area. Original road data was taken from the [OpenStreetMap (OSM)](https://planet.openstreetmap.org/), but as this was a large file, Geofabrik's data was used instead. 
 
 #### Houses
-Likewise with the roads, houses data was downloaded from [Geoabrick](https://download.geofabrik.de/) as a subset of [OpenStreetMap](https://planet.openstreetmap.org/).
+Likewise with the roads, houses data was downloaded from [Geofabrick](https://download.geofabrik.de/) as a subset of [OpenStreetMap](https://planet.openstreetmap.org/).
 
 #### Socioeconomic
 We used 2019 census tract data from the [U.S. Census Burea's American Community Survey](https://www.census.gov/programs-surveys/acs). The folder used was `ACS_2019_5YR_TRACT_48.gdb` which is an ArcGIS [file geodatabase](https://desktop.arcgis.com/en/arcmap/latest/manage-data/administer-file-gdbs/file-geodatabases.htm). The geometry layer `ACS_2019_5YR_TRACT_48_TEXAS` was extracted and used for comparioson with census tracts. 
