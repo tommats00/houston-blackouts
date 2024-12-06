@@ -1,4 +1,6 @@
 # Analysis of Blackouts in Houston, Texas
+![Image](https://s.hdnux.com/photos/01/24/10/56/22055870/6/rawImage.jpg)]
+Image Credit: Brett Coomer, Houston Chronicle
 
 ### Purpose 
 This repository aims to investigate household blackouts in Houston, Texas due to storms in February 2021. Climate change is increasing extreme weather events all over the world. In February of 2021, three winter storms transversed the United States on the 10th-11th, 13th-17th, and 15th-20th. During this storm surge, Houston, Texas was affected with a number of household blackouts throughout the city. 
