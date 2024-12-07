@@ -13,8 +13,8 @@ houston-blackouts
 │   .gitignore
 |   README.md
 |   houston-blackouts.Rproj
-│   houston-blackouts.qmd
 │   houston-blackouts.html
+│   houston-blackouts.qmd
 │
 └── houston-blackouts_files
    
