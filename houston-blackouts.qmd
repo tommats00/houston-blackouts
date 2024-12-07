@@ -14,8 +14,7 @@ editor_options:
 
 ## Background
 
-In February 2021, three severe winter storms transversed the United States. During the course of this time, the state of Texas experienced a major power crisis. The goal of this assignment is to identify the impacts of these winter storms by estimating the number of homes in the Houston area that experienced power blackouts. We will also investigate whether or not these blackouts were experienced disproportionally throughout income groups. 
-
+In February 2021, three severe winter storms transversed the United States. During the course of this time, the state of Texas experienced a major power crisis. The goal of this assignment is to identify the impacts of these winter storms by estimating the number of homes in the Houston area that experienced power blackouts. We will also investigate whether or not these blackouts were experienced disproportionally throughout income groups.
 
 ### Load libraries
 
@@ -94,7 +93,7 @@ if (length(false_comparisons) == 0) {
 check_df_crs()
 ```
 
-From the warning message, it looks like the socio data is the only variable that has a different CRS. Change it to any of the other variables to match the rest. Then, recheck if the CRSs match. 
+From the warning message, it looks like the socio data is the only variable that has a different CRS. Change it to any of the other variables to match the rest. Then, recheck if the CRSs match.
 
 ```{r}
 # Transform socio crs to be the same as roads
@@ -108,14 +107,15 @@ if (st_crs(socio) == st_crs(roads)) {
 ```
 
 ## Night light intensities before and after the storm
-The purpose of this assignment is to check how the storms affected night light intensities. To get a sense of how it looks, we first want to see the night light intensity before and after the storm. 
+
+The purpose of this assignment is to check how the storms affected night light intensities. To get a sense of how it looks, we first want to see the night light intensity before and after the storm.
+
 ```{r}
 # Combine data for night light intensities on 2021-02-07 and 2021-02-16 respectively 
 nights_merge_7 <- st_mosaic(nights5_7, nights6_7)
 
 nights_merge_16 <- st_mosaic(nights5_16, nights6_16)
 ```
-
 
 ```{r}
 #| code-fold: true
@@ -132,7 +132,9 @@ lights16 <- plot(nights_merge_16,
 ```
 
 ### Create blackout mask
-We want to discover the areas that experienced a blackout due to the storm. To do this, we need to create a mask that indicates for each cell whether or not it experienced a blackout. 
+
+We want to discover the areas that experienced a blackout due to the storm. To do this, we need to create a mask that indicates for each cell whether or not it experienced a blackout.
+
 ```{r}
 # Change in light intensity before and after the storms 
 nights_diff <- nights_merge_7 - nights_merge_16
@@ -156,9 +158,11 @@ nights_crop_trans <- st_transform(nights_crop, crs = "EPSG:3083")
 ```
 
 ## Exclude highways from the cropped blackout mask
-Highways may have experienced changes in their light intensities that are not related to the storm. We should exclude any locations within 200 meters of all highways in the Houston area. 
 
-First, lets check to see if our CRSs are the same for the data being compared. We are changing our CRSs from the commonly used EPSG:4326 to a Texas specific CRS of EPSG:3083. 
+Highways may have experienced changes in their light intensities that are not related to the storm. We should exclude any locations within 200 meters of all highways in the Houston area.
+
+First, lets check to see if our CRSs are the same for the data being compared. We are changing our CRSs from the commonly used EPSG:4326 to a Texas specific CRS of EPSG:3083.
+
 ```{r, warning=TRUE}
 #| code-fold: true
 #| code-summary: "Show the code"
@@ -173,7 +177,6 @@ if (st_crs(roads) == st_crs(nights_crop_trans)){
   print("CRSs are NOW the same")
 }
 ```
-
 
 ```{r}
 # Create a 200m buffer in roads data
@@ -190,7 +193,8 @@ nights_diff_roads <- st_difference(nights_crop_trans, roads_200_union)
 
 ## Identify homes likely impacted by blackouts
 
-Like before, check to see if the CRSs match. If they don't, reproject to the Texas CRS. 
+Like before, check to see if the CRSs match. If they don't, reproject to the Texas CRS.
+
 ```{r, warning=TRUE}
 #| code-fold: true
 #| code-summary: "Show the code"
@@ -204,7 +208,6 @@ if (st_crs(buildings) == st_crs(nights_diff_roads)){
   print("CRSs are NOW the same")
 }
 ```
-
 
 ```{r}
 # Find where homes are crossing with power outage in the blackout mask 
@@ -220,9 +223,11 @@ print(paste("The number of homes in Houston that lost power were", length(houses
 # Join median_income data to socio data by GEO_ID
 census_income <- left_join(socio, median_income, by = "GEOID_Data")
 ```
-We left join median income onto our socio data because we are only interested in the income data for our houston census tracts. 
 
-Once again, check to see if the CRSs match. 
+We left join median income onto our socio data because we are only interested in the income data for our houston census tracts.
+
+Once again, check to see if the CRSs match.
+
 ```{r, warning=TRUE}
 #| code-fold: true
 #| code-summary: "Show the code"
@@ -236,7 +241,6 @@ if (st_crs(houses_blackouts) == st_crs(census_income)) {
   print("CRSs are NOW the same")
 }
 ```
-
 
 ```{r}
 # Join houses_blackout data with census_income 
@@ -277,8 +281,8 @@ tm_shape(houston_census) +
              size = 1.75)
 ```
 
-
 ### Map of census tracts that lost power
+
 ```{r}
 #| code-fold: true
 #| code-summary: "Show the code"
@@ -299,7 +303,8 @@ tm_shape(houston_census) +
              size = 1.75) 
 ```
 
-### Histogram of census tracks that did and did not lose power 
+### Histogram of census tracks that did and did not lose power
+
 ```{r}
 #| code-fold: true
 #| code-summary: "Show the code"
@@ -345,12 +350,12 @@ no_blackout_census_plot + yes_blackout_census
 
 ```
 
-
 ## Reflection
-The storms in February of 2021 had huge impacts in the state of Texas. Over a hundred thousand homes experienced a blackout with over 700 census tracts as well. The maps presented show the areas of homes and census tracts that experienced blackouts. From our analysis, we see that blackouts were not felt disproportionately throughout income groups because there was a similar trend for groups that did and did not experience blackouts. A limitation to the data was that we could only acquire satellite data from before and after the storms due to cloud coverage. We might be able to come to more accurate conclusions if we could see what was happening during each storm. 
 
+The storms in February of 2021 had huge impacts in the state of Texas. Over a hundred thousand homes experienced a blackout with over 700 census tracts as well. The maps presented show the areas of homes and census tracts that experienced blackouts. From our analysis, we see that blackouts were not felt disproportionately throughout income groups because there was a similar trend for groups that did and did not experience blackouts. A limitation to the data was that we could only acquire satellite data from before and after the storms due to cloud coverage. We might be able to come to more accurate conclusions if we could see what was happening during each storm.
 
 ## Citations
+
 ```{r}
 #| code-fold: true
 #| code-summary: "Reveal code"
@@ -362,4 +367,3 @@ tribble(
 ) %>% 
   kableExtra::kable()
 ```
-
