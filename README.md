@@ -7,6 +7,20 @@ This repository aims to investigate household blackouts in Houston, Texas due to
 
 This analysis will use remotely-sensed night light data from the [Visible Infrared Imaging Radiometer Suite (VIIRS)](https://en.wikipedia.org/wiki/Visible_Infrared_Imaging_Radiometer_Suite) on the Suomi satellite. This data will be paired with US Census Bureau data to investigate whether or not the number of homes in Houston was felt disproportionately throughout socioeconomic groups. 
 
+### Structure
+```{r}
+houston-blackouts  
+│   .gitignore
+|   README.md
+|   houston-blackouts.Rproj
+│   houston-blackouts.qmd
+│   houston-blackouts.html
+│
+└── houston-blackouts_files
+   
+
+```
+
 ### Highlights of Analysis
 - Load in geospatial data using `sf` and `stars`
 - Merge rasters with `st_mosaic`
