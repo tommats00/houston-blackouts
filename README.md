@@ -43,15 +43,12 @@ Likewise with the roads, houses data was downloaded from [Geofabrick](https://do
 #### Socioeconomic
 We used 2019 census tract data from the [U.S. Census Burea's American Community Survey](https://www.census.gov/programs-surveys/acs). The folder used was `ACS_2019_5YR_TRACT_48.gdb` which is an ArcGIS [file geodatabase](https://desktop.arcgis.com/en/arcmap/latest/manage-data/administer-file-gdbs/file-geodatabases.htm). The geometry layer `ACS_2019_5YR_TRACT_48_TEXAS` was extracted and used for comparioson with census tracts. 
 
-### Authors
-A special thanks to [Ruth Oliver](https://github.com/ryoliver) for guidance in [EDS 223](https://eds-223-geospatial.github.io/) in the completion of this work. 
-
 ### Refereces and Acknowledgements 
 
 Menzel, W.P., Frey, R.A., and Baum, B.A. (2015). Terra/MODIS Cloud Product 5-Min L2
 Swath 1 km and 5 km, C6, NASA Level-1 and Atmosphere Archive & Distribution System
 (LAADS) Distributed Active Archive Center (DAAC), Goddard Space Flight Center,
-Greenbelt, MD. [http://dx.doi.org/10.5067/MODIS/MOD06_L2.006]
+Greenbelt, MD. http://dx.doi.org/10.5067/MODIS/MOD06_L2.006
 
 OpenStreetMap contributors. (2015) Planet dump North America. Retrieved from
 https://planet.openstreetmap.or
@@ -60,3 +57,4 @@ U.S. Census Bureau. (2019). 2019 American Community Survey Public Use Microdata
 Samples. Retrieved from
 https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml?refresh=t
 
+A special thanks to [Ruth Oliver](https://github.com/ryoliver) for guidance in [EDS 223](https://eds-223-geospatial.github.io/) in the completion of this work. 
