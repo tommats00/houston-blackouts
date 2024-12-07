@@ -17,8 +17,6 @@ houston-blackouts
 │   houston-blackouts.qmd
 │
 └── houston-blackouts_files
-   
-
 ```
 
 ### Highlights of Analysis
